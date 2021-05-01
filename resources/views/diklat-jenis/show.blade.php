@@ -14,7 +14,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong>Details</strong>
+                            <strong>Detail</strong>
                             <a href="{{ route('diklatJenis.index') }}" class="btn btn-light">Kembali</a>
                         </div>
                         <div class="card-body">

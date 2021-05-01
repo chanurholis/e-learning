@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  */
 class DiklatJenis extends Model
 {
-    // use SoftDeletes;
+    use SoftDeletes;
     use HasFactory;
 
     public $table = 'diklat_jenis';
@@ -26,11 +26,7 @@ class DiklatJenis extends Model
 
     protected $primaryKey = 'id_jenis';
 
-    public $fillable = [
-        'kode_jenis',
-        'nama_jenis',
-        'status_aktif'
-    ];
+    public $guarded = [];
 
     /**
      * The attributes that should be casted to native types.

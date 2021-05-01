@@ -6,6 +6,10 @@ use App\Http\Requests\CreateDiklatRequest;
 use App\Http\Requests\UpdateDiklatRequest;
 use App\Repositories\DiklatRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Models\DiklatBidangPelatihan;
+use App\Models\DiklatJenis;
+use App\Models\DiklatJenisKegiatan;
+use App\Models\DiklatModelPelatihan;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
@@ -42,7 +46,17 @@ class DiklatController extends AppBaseController
      */
     public function create()
     {
-        return view('diklats.create');
+        $jenisDiklat     = DiklatJenis::where('status_aktif', 'Y')->get();
+        $bidangPelatihan = DiklatBidangPelatihan::where('status_aktif', 'Y')->get();
+        $jenisKegiatan   = DiklatJenisKegiatan::all();
+        $modelPelatihan  = DiklatModelPelatihan::all();
+
+        return view('diklats.create', [
+            'jenisDiklat'     => $jenisDiklat,
+            'bidangPelatihan' => $bidangPelatihan,
+            'jenisKegiatan'   => $jenisKegiatan,
+            'modelPelatihan'  => $modelPelatihan
+        ]);
     }
 
     /**

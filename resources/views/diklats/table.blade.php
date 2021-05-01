@@ -26,7 +26,7 @@
                     <td>{{ $diklat->jenis_diklat }}</td>
                     <td>{{ $diklat->bidang_pelatihan }}</td>
                     <td>{{ $diklat->jenis_kegiatan }}</td>
-                    <td>{{ $diklat->model_palatihan }}</td>
+                    <td>{{ $diklat->model_pelatihan }}</td>
                     <td>{{ $diklat->kode_diklat }}</td>
                     <td>{{ $diklat->kode_profil }}</td>
                     <td>{{ $diklat->nama_diklat }}</td>

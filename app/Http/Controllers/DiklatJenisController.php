@@ -21,7 +21,7 @@ class DiklatJenisController extends AppBaseController
     }
 
     /**
-     * Display a listing of the Diklat-Jenis.
+     * Display a listing of the DiklatJenis.
      *
      * @param Request $request
      *
@@ -36,7 +36,7 @@ class DiklatJenisController extends AppBaseController
     }
 
     /**
-     * Show the form for creating a new Diklat-Jenis.
+     * Show the form for creating a new DiklatJenis.
      *
      * @return Response
      */
@@ -46,7 +46,7 @@ class DiklatJenisController extends AppBaseController
     }
 
     /**
-     * Store a newly created Diklat-Jenis in storage.
+     * Store a newly created DiklatJenis in storage.
      *
      * @param CreateDiklat-JenisRequest $request
      *

@@ -15,7 +15,7 @@
                     <div class="card">
                         <div class="card-header">
                             <i class="fa fa-edit fa-lg"></i>
-                            <strong>Edit Diklat- Jenis</strong>
+                            <strong>Edit Jenis Diklat</strong>
                         </div>
                         <div class="card-body">
                             {!! Form::model($diklatJenis, ['route' => ['diklatJenis.update', $diklatJenis->id_jenis], 'method' => 'patch']) !!}

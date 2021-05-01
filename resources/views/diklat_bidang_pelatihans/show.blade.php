@@ -3,7 +3,7 @@
 @section('content')
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a href="{{ route('diklatBidangPelatihans.index') }}">Diklat Bidang Pelatihan</a>
+            <a href="{{ route('diklatBidangPelatihans.index') }}">Bidang Pelatihan</a>
         </li>
         <li class="breadcrumb-item active">Detail</li>
     </ol>
@@ -14,7 +14,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong>Details</strong>
+                            <strong>Detail</strong>
                             <a href="{{ route('diklatBidangPelatihans.index') }}" class="btn btn-light">Kembali</a>
                         </div>
                         <div class="card-body">

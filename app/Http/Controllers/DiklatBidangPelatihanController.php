@@ -6,6 +6,7 @@ use App\Http\Requests\CreateDiklatBidangPelatihanRequest;
 use App\Http\Requests\UpdateDiklatBidangPelatihanRequest;
 use App\Repositories\DiklatBidangPelatihanRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Models\DiklatJenis;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
@@ -42,7 +43,11 @@ class DiklatBidangPelatihanController extends AppBaseController
      */
     public function create()
     {
-        return view('diklat_bidang_pelatihans.create');
+        $diklatJenis = DiklatJenis::where('status_aktif', 'Y')->get();
+
+        return view('diklat_bidang_pelatihans.create', [
+            'diklatJenis' => $diklatJenis
+        ]);
     }
 
     /**

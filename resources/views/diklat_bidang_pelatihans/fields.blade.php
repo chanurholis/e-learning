@@ -1,7 +1,13 @@
 <!-- Kode Jenis Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('kode_jenis', 'Kode Jenis :') !!}
-    {!! Form::text('kode_jenis', null, ['class' => 'form-control']) !!}
+    {{-- {!! Form::text('kode_jenis', null, ['class' => 'form-control']) !!} --}}
+    <select name="kode_jenis" id="kode_jenis" class="form-control">
+        <option value="">Pilih Kode Jenis</option>
+        @foreach ($diklatJenis as $jenis)
+            <option value="{{ $jenis->kode_jenis }}">{{ $jenis->nama_jenis }}</option>
+        @endforeach
+    </select>
 </div>
 
 <!-- Kode Bidang Field -->
@@ -24,6 +30,6 @@
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
-    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-    <a href="{{ route('diklatBidangPelatihans.index') }}" class="btn btn-secondary">Cancel</a>
+    {!! Form::submit('Simpan', ['class' => 'btn btn-primary']) !!}
+    <a href="{{ route('diklatBidangPelatihans.index') }}" class="btn btn-secondary">Batalkan</a>
 </div>

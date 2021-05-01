@@ -1,30 +1,30 @@
 <!-- Kode Jenis Field -->
 <div class="form-group">
     {!! Form::label('kode_jenis', 'Kode Jenis :') !!}
-    <p>{{ $diklatJenis->kode_jenis }}</p>
+    <p class="font-weight-bold">{{ $diklatJenis->kode_jenis }}</p>
 </div>
 
 <!-- Nama Jenis Field -->
 <div class="form-group">
     {!! Form::label('nama_jenis', 'Nama Jenis :') !!}
-    <p>{{ $diklatJenis->nama_jenis }}</p>
+    <p class="font-weight-bold">{{ $diklatJenis->nama_jenis }}</p>
 </div>
 
 <!-- Status Aktif Field -->
 <div class="form-group">
     {!! Form::label('status_aktif', 'Status Aktif :') !!}
-    <p>{{ $diklatJenis->status_aktif }}</p>
+    <p class="font-weight-bold">{{ $diklatJenis->status_aktif }}</p>
 </div>
 
 <!-- Created At Field -->
 <div class="form-group">
-    {!! Form::label('created_at', 'Created At :') !!}
-    <p>{{ $diklatJenis->created_at }}</p>
+    {!! Form::label('created_at', 'Dibuat :') !!}
+    <p class="font-weight-bold">{{ $diklatJenis->created_at }}</p>
 </div>
 
 <!-- Updated At Field -->
 <div class="form-group">
-    {!! Form::label('updated_at', 'Updated At :') !!}
-    <p>{{ $diklatJenis->updated_at }}</p>
+    {!! Form::label('updated_at', 'Diperbarui :') !!}
+    <p class="font-weight-bold">{{ $diklatJenis->updated_at }}</p>
 </div>
 

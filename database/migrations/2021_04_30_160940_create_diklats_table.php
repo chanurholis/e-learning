@@ -19,7 +19,7 @@ class CreateDiklatsTable extends Migration
             $table->string('jenis_diklat', 2);
             $table->string('bidang_pelatihan', 2);
             $table->string('jenis_kegiatan', 2);
-            $table->string('model_palatihan', 2);
+            $table->string('model_pelatihan', 2);
             $table->string('kode_diklat', 20);
             $table->string('kode_profil', 10);
             $table->string('nama_diklat', 100);

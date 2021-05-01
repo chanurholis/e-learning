@@ -39,23 +39,7 @@ class Diklat extends Model
 
     protected $primaryKey = 'id_diklat';
 
-    public $fillable = [
-        'jenis_diklat',
-        'bidang_pelatihan',
-        'jenis_kegiatan',
-        'model_palatihan',
-        'kode_diklat',
-        'kode_profil',
-        'nama_diklat',
-        'tahun',
-        'jenjang',
-        'syarat_peserta',
-        'syarat_wi',
-        'deskripsi',
-        'tujuan_diklat',
-        'keterangan',
-        'status_aktif'
-    ];
+    public $guarded = [];
 
     /**
      * The attributes that should be casted to native types.
@@ -63,21 +47,21 @@ class Diklat extends Model
      * @var array
      */
     protected $casts = [
-        'id_diklat' => 'integer',
-        'jenis_diklat' => 'string',
+        'id_diklat'        => 'integer',
+        'jenis_diklat'     => 'string',
         'bidang_pelatihan' => 'string',
-        'jenis_kegiatan' => 'string',
-        'model_palatihan' => 'string',
-        'kode_diklat' => 'string',
-        'kode_profil' => 'string',
-        'nama_diklat' => 'string',
-        'tahun' => 'string',
-        'jenjang' => 'string',
-        'syarat_peserta' => 'string',
-        'syarat_wi' => 'string',
-        'deskripsi' => 'string',
-        'tujuan_diklat' => 'string',
-        'keterangan' => 'string'
+        'jenis_kegiatan'   => 'string',
+        'model_pelatihan'  => 'string',
+        'kode_diklat'      => 'string',
+        'kode_profil'      => 'string',
+        'nama_diklat'      => 'string',
+        'tahun'            => 'string',
+        'jenjang'          => 'string',
+        'syarat_peserta'   => 'string',
+        'syarat_wi'        => 'string',
+        'deskripsi'        => 'string',
+        'tujuan_diklat'    => 'string',
+        'keterangan'       => 'string'
     ];
 
     /**
@@ -86,20 +70,20 @@ class Diklat extends Model
      * @var array
      */
     public static $rules = [
-        'jenis_diklat' => 'required',
+        'jenis_diklat'     => 'required',
         'bidang_pelatihan' => 'required',
-        'jenis_kegiatan' => 'nomor string,3 text',
-        'model_palatihan' => 'required',
-        'kode_diklat' => 'required',
-        'kode_profil' => 'required',
-        'nama_diklat' => 'required',
-        'tahun' => 'required',
-        'jenjang' => 'required',
-        'syarat_peserta' => 'required',
-        'syarat_wi' => 'required',
-        'deskripsi' => 'required',
-        'tujuan_diklat' => 'required',
-        'keterangan' => 'required',
-        'status_aktif' => 'required'
+        'jenis_kegiatan'   => 'required',
+        'model_pelatihan'  => 'required',
+        'kode_diklat'      => 'required',
+        'kode_profil'      => 'required',
+        'nama_diklat'      => 'required',
+        'tahun'            => 'required',
+        'jenjang'          => 'required',
+        'syarat_peserta'   => 'required',
+        'syarat_wi'        => 'required',
+        'deskripsi'        => 'required',
+        'tujuan_diklat'    => 'required',
+        'keterangan'       => 'required',
+        'status_aktif'     => 'required'
     ];
 }

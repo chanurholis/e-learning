@@ -33,3 +33,7 @@ Route::resource('diklatJenis', DiklatJenisController::class);
 
 
 Route::resource('diklatBidangPelatihans', App\Http\Controllers\DiklatBidangPelatihanController::class);
+
+Route::resource('diklatJenisKegiatans', App\Http\Controllers\DiklatJenisKegiatanController::class);
+
+Route::resource('diklatModelPelatihans', App\Http\Controllers\DiklatModelPelatihanController::class);
