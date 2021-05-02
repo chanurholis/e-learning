@@ -3,9 +3,9 @@
 @section('content')
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a href="{!! route('diklatBidangPelatihans.index') !!}">Bidang Pelatihan</a>
+            <a href="{!! route('diklatBidangKerjas.index') !!}">Bidang Kerja</a>
         </li>
-        <li class="breadcrumb-item active">Edit</li>
+        <li class="breadcrumb-item active">Buat</li>
     </ol>
     <div class="container-fluid">
         <div class="animated fadeIn">
@@ -14,13 +14,13 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <i class="fa fa-edit fa-lg"></i>
-                            <strong>Edit Bidang Pelatihan</strong>
+                            <i class="fa fa-plus-square-o fa-lg"></i>
+                            <strong>Buat Bidang Kerja</strong>
                         </div>
                         <div class="card-body">
-                            {!! Form::model($diklatBidangPelatihan, ['route' => ['diklatBidangPelatihans.update', $diklatBidangPelatihan->id_bidang], 'method' => 'patch']) !!}
+                            {!! Form::open(['route' => 'diklatBidangKerjas.store']) !!}
 
-                            @include('diklat_bidang_pelatihans.fields')
+                                @include('diklat_bidang_kerjas.fields')
 
                             {!! Form::close() !!}
                         </div>

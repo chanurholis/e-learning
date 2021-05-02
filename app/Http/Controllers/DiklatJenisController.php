@@ -6,9 +6,11 @@ use App\Http\Requests\CreateDiklatJenisRequest;
 use App\Http\Requests\UpdateDiklatJenisRequest;
 use App\Repositories\DiklatJenisRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Imports\DiklatJenisImport;
 use Illuminate\Http\Request;
-use Flash;
 use Response;
+use Flash;
+use Excel;
 
 class DiklatJenisController extends AppBaseController
 {
@@ -152,5 +154,35 @@ class DiklatJenisController extends AppBaseController
         Flash::success('Jenis Diklat berhasil dihapus.');
 
         return redirect(route('diklatJenis.index'));
+    }
+
+    public function format_import()
+    {
+        return redirect('/format-import/jenisdiklat.xls');
+    }
+
+    public function showFormImport()
+    {
+        return view('diklat-jenis.import');
+    }
+
+    public function import(Request $request)
+    {
+        $request->validate([
+            'file' => 'required'
+        ]);
+
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $fileName   = date("dmY") . $file->getClientOriginalName();
+
+            $file->move('diklatJenisFile', $fileName);
+
+            Excel::import(new DiklatJenisImport, public_path('/diklatJenisFile/' . $fileName));
+
+            Flash::success('Jenis Diklat berhasil diimpor.');
+
+            return redirect(route('diklatJenis.index'));
+        }
     }
 }
