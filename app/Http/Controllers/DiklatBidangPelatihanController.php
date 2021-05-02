@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateDiklatBidangPelatihanRequest;
 use App\Http\Requests\UpdateDiklatBidangPelatihanRequest;
 use App\Repositories\DiklatBidangPelatihanRepository;
+use App\Imports\DiklatBidangPelatihanImport;
 use App\Http\Controllers\AppBaseController;
-use App\Models\DiklatJenis;
 use Illuminate\Http\Request;
-use Flash;
+use App\Models\DiklatJenis;
 use Response;
+use Flash;
+use Excel;
 
 class DiklatBidangPelatihanController extends AppBaseController
 {
@@ -97,6 +99,7 @@ class DiklatBidangPelatihanController extends AppBaseController
      */
     public function edit($id)
     {
+        $diklatJenis = DiklatJenis::where('status_aktif', 'Y')->get();
         $diklatBidangPelatihan = $this->diklatBidangPelatihanRepository->find($id);
 
         if (empty($diklatBidangPelatihan)) {
@@ -105,7 +108,10 @@ class DiklatBidangPelatihanController extends AppBaseController
             return redirect(route('diklatBidangPelatihans.index'));
         }
 
-        return view('diklat_bidang_pelatihans.edit')->with('diklatBidangPelatihan', $diklatBidangPelatihan);
+        return view('diklat_bidang_pelatihans.edit', [
+            'diklatBidangPelatihan' => $diklatBidangPelatihan,
+            'diklatJenis'           => $diklatJenis
+        ]);
     }
 
     /**
@@ -157,5 +163,35 @@ class DiklatBidangPelatihanController extends AppBaseController
         Flash::success('Bidang Pelatihan berhasil dihapus.');
 
         return redirect(route('diklatBidangPelatihans.index'));
+    }
+
+    public function format_import()
+    {
+        return redirect('/format-import/bidangpelatihan.xls');
+    }
+
+    public function showFormImport()
+    {
+        return view('diklat_bidang_pelatihans.import');
+    }
+
+    public function import(Request $request)
+    {
+        $request->validate([
+            'file' => 'required'
+        ]);
+
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $fileName   = date("dmY") . $file->getClientOriginalName();
+
+            $file->move('diklatBidangPelatihanFile', $fileName);
+
+            Excel::import(new DiklatBidangPelatihanImport, public_path('/diklatBidangPelatihanFile/' . $fileName));
+
+            Flash::success('Bidang Pelatihan berhasil diimpor.');
+
+            return redirect(route('diklatBidangPelatihans.index'));
+        }
     }
 }

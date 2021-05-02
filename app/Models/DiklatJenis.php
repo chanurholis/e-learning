@@ -20,13 +20,13 @@ class DiklatJenis extends Model
     use SoftDeletes;
     use HasFactory;
 
-    public $table = 'diklat_jenis';
+    public $table         = 'diklat_jenis';
 
-    protected $dates = ['deleted_at'];
+    protected $dates      = ['deleted_at'];
 
     protected $primaryKey = 'id_jenis';
 
-    public $guarded = [];
+    public $guarded       = [];
 
     /**
      * The attributes that should be casted to native types.
@@ -34,9 +34,9 @@ class DiklatJenis extends Model
      * @var array
      */
     protected $casts = [
-        'id_jenis' => 'integer',
-        'kode_jenis' => 'string',
-        'nama_jenis' => 'string',
+        'id_jenis'     => 'integer',
+        'kode_jenis'   => 'string',
+        'nama_jenis'   => 'string',
         'status_aktif' => 'string'
     ];
 
@@ -46,8 +46,8 @@ class DiklatJenis extends Model
      * @var array
      */
     public static $rules = [
-        'kode_jenis' => 'required|max:2',
-        'nama_jenis' => 'required',
+        'kode_jenis'   => 'required|max:2',
+        'nama_jenis'   => 'required',
         'status_aktif' => 'required'
     ];
 }

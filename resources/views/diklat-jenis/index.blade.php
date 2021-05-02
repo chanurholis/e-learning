@@ -13,7 +13,9 @@
                         <div class="card-header">
                             <i class="fa fa-align-justify"></i>
                             Jenis Diklat
-                            <a class="pull-right" href="{{ route('diklatJenis.create') }}"><i class="fa fa-plus-square fa-lg"></i></a>
+                            <a class="pull-right ml-2" href="{{ route('diklatJenis.create') }}"><i class="fa fa-plus-square"></i> Tambah</a>
+                            <a class="pull-right ml-2" href="{{ '/show-form-import-diklat-jenis' }}"><i class="fa fa-file"></i> Impor</a>
+                            <a class="pull-right" href="{{ '/format-import-jenis-diklat' }}"><i class="fa fa-download"></i> Format Impor</a>
                         </div>
                         <div class="card-body">
                             @include('diklat-jenis.table')
